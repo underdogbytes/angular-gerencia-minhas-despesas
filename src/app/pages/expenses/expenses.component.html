@@ -1,0 +1,17 @@
+<main>
+  <h1>Despesas</h1>
+
+  <a routerLink="/despesas/saude" routerLinkActive="active">
+    <app-button [label]="saude"></app-button>
+  </a>
+
+  <div>
+    <ul>
+      @for(expense of expenses; track expense.id){
+      <a href="/despesas/{{expense.path}}">
+        <li>{{ expense.name }}</li>
+      </a>
+      }
+    </ul>
+  </div>
+</main>

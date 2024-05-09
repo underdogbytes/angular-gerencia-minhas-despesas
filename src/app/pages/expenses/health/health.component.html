@@ -1,3 +1,9 @@
 <main>
   <h1>Despesas de Saúde</h1>
+
+  @for(healthExpense of healthExpenses; track healthExpense.id){
+  <a [routerLink]="['/bird/despesas/saude/', healthExpense.id]">
+    <li>{{ healthExpense.name }}</li>
+  </a>
+  }
 </main>

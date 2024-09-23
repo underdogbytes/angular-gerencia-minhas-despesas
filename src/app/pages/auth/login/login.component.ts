@@ -1,11 +1,12 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ButtonComponent } from "../../../component/button/button.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NgFor,ReactiveFormsModule],
+  imports: [NgFor, ReactiveFormsModule, ButtonComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

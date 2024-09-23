@@ -14,16 +14,18 @@ export const routes: Routes = [
     path: '', component: WelcomeComponent
   },
   {
+    path: 'sobre', component: AboutComponent
+  },
+  {
     path: 'register', component: RegisterComponent
   },
   {
     path: 'login', component: LoginComponent
   },
   {
-    'path': 'bird',
+    'path': 'home',
     children: [
-      { 'path': 'home', component: HomeComponent, },
-      { 'path': 'sobre', component: AboutComponent },
+      { 'path': '', component: HomeComponent, },
       {
         'path': 'despesas',
         children: [

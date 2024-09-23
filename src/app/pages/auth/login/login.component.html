@@ -1,3 +1,35 @@
 <section>
   <h1>Login</h1>
+  <p>Insira qualquer coisa em formato de email e qualquer coisa como senha, então clique no botão 'Entrar' :D</p>
+  <form
+    [formGroup]="authForm"
+    (ngSubmit)="login()"
+  >
+    <div>
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        formControlName="email"
+        placeholder="Email"
+      />
+    </div>
+    <div>
+      <label for="password">Senha</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        formControlName="password"
+        placeholder="Senha"
+      />
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="!authForm.valid">
+        Entrar
+      </button>
+    </div>
+  </form>
 </section>

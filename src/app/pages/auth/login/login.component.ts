@@ -2,6 +2,7 @@ import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from "../../../component/button/button.component";
+import { NavigationService } from '../../../services/navigation/navigation.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,10 @@ import { ButtonComponent } from "../../../component/button/button.component";
 export class LoginComponent {
   authForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private navigationService: NavigationService
+  ) {
     this.authForm = this.formBuilder.group({
       email: [
         '',
@@ -27,8 +31,14 @@ export class LoginComponent {
   }
 
   login() {
+    // TODO: fazer API ao invés de fazer falso login usando sessionStorage ^-^
     if (this.authForm.valid) {
-      console.log("Falso login efetuado! \nDados:", this.authForm.value);
+      sessionStorage.setItem('logged', 'true');
+      sessionStorage.setItem('user', this.authForm.value.email)
+      this.navigationService.mudarRota('home');
+    } else {
+      // TODO: exibir erro na tela em caso de erro
+      console.log("Formulário inválido!", this.authForm.errors);
     }
   }
 }

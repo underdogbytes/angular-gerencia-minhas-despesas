@@ -10,6 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class ButtonComponent {
   @Input() label = '';
+  @Input() type = '';
+  @Input() disabled = false;
   @Output() action = new EventEmitter<any[]>();
 
   onClick(...args: any[]) {

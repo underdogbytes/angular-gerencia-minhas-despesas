@@ -16,8 +16,17 @@ export class AuthService {
     sessionStorage.setItem('user', user);
     this.navigationService.mudarRota('home');
   }
+
+  isLogged(): boolean {
+    if (typeof sessionStorage !== 'undefined') {
+      return sessionStorage.getItem('logged') === 'true';
+    }
+    return false; 
+  }
+
   logout() {
     sessionStorage.removeItem('logged');
     sessionStorage.removeItem('user');
+    this.navigationService.mudarRota('');
   }
 }

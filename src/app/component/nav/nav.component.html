@@ -6,4 +6,11 @@
   >
     <app-button [label]="item.name"></app-button>
   </a>
+
+  <!-- TODO: tem q concertar o bug de não mudar o status após logar ou deslogar sem precisar recarregar a page -->
+  <app-button
+    *ngIf="isUserLogged"
+    [label]="'Sair do sistema'"
+    (click)="logout()"
+  />
 </nav>
